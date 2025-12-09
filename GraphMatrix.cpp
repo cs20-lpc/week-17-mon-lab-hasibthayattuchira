@@ -3,11 +3,11 @@
 GraphMatrix::GraphMatrix(int numV, GType type) {
     // TODO
     v = numV;
-    adjMatrix = new bool*[v];
+    adjMatrix = new bool*[v]; // starting the allocation
     for(int i = 0; i < v; i++){
         adjMatrix[i] = new bool[v];
         for(int j = 0; j < v; j++){
-            adjMatrix[i][j] = false;
+            adjMatrix[i][j] = false; // should initialize everything to false
         }
     }
 }
@@ -62,9 +62,9 @@ void GraphMatrix::toggleEdge(int i, int j) {
     adjMatrix[i][j] = !adjMatrix[i][j];
 
     if(adjMatrix[i][j]){
-        e++;
+        e++; // adds and edge
     } else {
-        e--;
+        e--; // removes an edge
     }
     if(graphType == UNDIRECTED && i != j){
         adjMatrix[j][i] = adjMatrix[i][j];
